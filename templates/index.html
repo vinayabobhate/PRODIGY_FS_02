@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Management System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    {% include 'navbar.html' %}
+    <div class="container">
+        <h1>Employee Management System</h1>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('add_employee') }}">Add Employee</a></li>
+                <li><a href="{{ url_for('display_employees') }}">Display Employees</a></li>
+                <!-- Add other links here -->
+            </ul>
+        </nav>
+    </div>
+</body>
+</html>

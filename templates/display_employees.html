@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Employees</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    {% include 'navbar.html' %}
+    <div class="container">
+        <div class="header">
+            <h1>Employee Records</h1>
+            <a href="{{ url_for('index') }}" class="back-button">Home</a>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Address</th>
+                    <th>Post</th>
+                    <th>Salary</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for emp in employees %}
+                <tr>
+                    <td>{{ emp[0] }}</td>
+                    <td>{{ emp[1] }}</td>
+                    <td>{{ emp[2] }}</td>
+                    <td>{{ emp[3] }}</td>
+                    <td>{{ emp[4] }}</td>
+                    <td>{{ emp[5] }}</td>
+                    <td>{{ emp[6] }}</td>
+                    <td class="actions">
+                        <a href="{{ url_for('edit_employee', id=emp[0]) }}" class="edit-button">Edit</a>
+                        <a href="{{ url_for('delete_employee', id=emp[0]) }}" class="delete-button">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

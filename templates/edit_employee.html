@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Employee</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    {% include 'navbar.html' %}
+    <div class="container">
+        <div class="header">
+            <h1>Edit Employee</h1>
+            <a href="{{ url_for('display_employees') }}" class="back-button">Back to Employees</a>
+        </div>
+        <form method="post">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" value="{{ employee[1] }}" required><br>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" value="{{ employee[2] }}" required><br>
+            <label for="phone">Phone:</label>
+            <input type="text" id="phone" name="phone" value="{{ employee[3] }}" required><br>
+            <label for="address">Address:</label>
+            <input type="text" id="address" name="address" value="{{ employee[4] }}" required><br>
+            <label for="post">Position:</label>
+            <input type="text" id="post" name="post" value="{{ employee[5] }}" required><br>
+            <label for="salary">Salary:</label>
+            <input type="text" id="salary" name="salary" value="{{ employee[6] }}" required><br>
+            <button type="submit">Update Employee</button>
+        </form>
+    </div>
+</body>
+</html>

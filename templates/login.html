@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        /* Reset some default browser styles */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+            background-color: #3C5B6F;
+        }
+
+        /* Centering the login container */
+        .login-container {
+            width: 100%;
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            background-color: #153448;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+
+            /* Center the container vertically and horizontally */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .login-container h1 {
+            color: #37B7C3;
+            margin-bottom: 20px;
+        }
+
+        .login-form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .login-form label {
+            margin-bottom: 8px;
+            font-size: 16px;
+            color: #FFF;
+            text-align: left;
+        }
+
+        .login-form input {
+            width: 94%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+            color: #071952;
+        }
+
+        .login-form button {
+            background-color: #088395;
+            color: #FFF;
+            border: none;
+            padding: 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .login-form button:hover {
+            background-color: #37B7C3;
+        }
+
+        .login-error {
+            color: #FF2D2D;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h1>Employee Management System</h1>
+        <form method="post" class="login-form">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required><br>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required><br>
+            <button type="submit">Login</button>
+        </form>
+        {% if error %}
+            <div class="login-error">{{ error }}</div>
+        {% endif %}
+    </div>
+</body>
+</html>
